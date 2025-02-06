@@ -1,0 +1,36 @@
+/* This will center the content on the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    margin: 0;      /* Remove default margin */
+    background-color: #181818; /* Dark background */
+    font-family: 'Arial', sans-serif; /* Use a clean font */
+    overflow: hidden;
+}
+
+/* Styling the lyrics container */
+#lyrics {
+    text-align: center;  /* Center the text horizontally */
+    font-size: 24px;      /* Adjust font size */
+    line-height: 1.5;     /* Line height for readability */
+    color: #fff;          /* White text color */
+}
+
+/* Each lyric line in its own paragraph starts fully visible 
+   and is set to transition its opacity over 5 seconds */
+#lyrics p {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+/* Fade-out effect: simply sets opacity to 0 */
+.fade-out {
+    opacity: 0;
+}
+
+#heart {
+    color: red;
+  }
+  
