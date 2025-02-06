@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You :3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="lyrics"></div>
+
+  <script>
+    const lyrics = [
+        ["Your morning eyes,", 1500],
+        ["I could stare", 250],
+        ["like watching stars", 1000],
+        ["I could walk you by,", 1000],
+        ["and I'll tell without a thought", 250],
+        ["You'd be mine,", 300],
+        ["would you mind", 0],
+        ["if I took your hand tonight?", 1000],
+        ["Know you're all that I want", 1000],
+        ["this life", 2000],
+        
+        ["I'll imagine we fell in love", 0],
+        ["I'll nap under moonlight skies with you", 0],
+        ["I think I'll picture us, you with the waves", 0],
+        ["The ocean's colors on your face", 0],
+        ["I'll leave my heart with your air", 1000],
+        ["So let me fly with you", 500],
+        ["Will you", 1000],
+        ["be", 1000],
+        ["forever", 1000],
+        ["with me?", 1000],
+    ];
+
+    let currentLine = 0;
+    let currentChar = 0;
+    const typingSpeed = 100;
+
+    function typeLine() {
+      const lyricsDiv = document.getElementById('lyrics');
+
+      if (currentChar < lyrics[currentLine][0].length) {
+        lyricsDiv.innerHTML += lyrics[currentLine][0].charAt(currentChar);
+        currentChar++;
+        setTimeout(typeLine, typingSpeed);
+      } else {
+        if (currentLine === lyrics.length - 1) {
+          setTimeout(showHeart, 2000); // Show heart after 2s
+          return;
+        }
+
+        setTimeout(() => {
+          lyricsDiv.innerHTML = "";
+          currentLine++;
+          if (currentLine < lyrics.length) {
+            currentChar = 0;
+            typeLine();
+          }
+        }, lyrics[currentLine][1]);
+      }
+    }
+
+    function showHeart() {
+      document.getElementById("heart").textContent = `
+        **     **     **
+      *****   *****   *****
+     ******* ******* *******
+      *********************
+       *******************
+         ***************
+           ***********
+             *******
+               ***
+                *
+      `;
+    }
+
+    typeLine();
+  </script>
+
+  <pre id="heart"></pre>
+
+</body>
+</html>
